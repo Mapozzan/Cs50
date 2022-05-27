@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Historic
+{% endblock %}
+
+{% block main %}
+    <h1>Historic</h1>
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+            <th scope="col"></th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Total Shares</th>
+            <th scope="col">Share Price</th>
+            <th scope="col">Total Value</th>
+            <th scope="col">Date & Time</th>
+            <th scope="col">Operation Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for row in rows %}
+            <tr>
+            <th scope="row"></th>
+            <td>{{ row["symbol"] }}</td>
+            <td>{{ row["total_shares"] }} </td>
+            <td>{{ row["price"] }} </td>
+            <td>{{ row["total_shares"]*row["price"]}}</td>
+            <td>{{ row["date_time"] }} </td>
+            {% if row["type_op"] == 1 %}
+            <td class="table-success"> BUY OPERATION</td>
+            {% else%}
+             <td class="table-danger"> SELL OPERATION</td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
