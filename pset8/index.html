@@ -1,33 +1,35 @@
-<!DOCTYPE html>
+<html><head></head><body>{% extends "layout.html" %}
 
-<html lang="en">
-    <head>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="styles.css" rel="stylesheet">
-        <title>Teles4</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body class="background">
-        <h1 class="title">This page is dedicated to my good friend Teles</h1>
-        <div>
-            <img class="imagine_index" src="foto1.jpg">
-        </div>
-        <p class="paragrafo">TELESFOR NEVES ROCHA.</p>
-       <footer>
-            <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                              <a class="page-link" href="index.html" tabindex="-1">Previous</a>
-                    </li>
-            <li class="page-item"><a class="page-link" href="page1.html">Index</a></li>
-            <li class="page-item"><a class="page-link" href="page1.html">1</a></li>
-            <li class="page-item"><a class="page-link" href="page2.html">2</a></li>
-            <li class="page-item"><a class="page-link" href="page3.html">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="page1.html">Next</a>
-            </li>
-            </ul>
-       </footer>
-    </body>
-</html>
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome, {{ user_name }} </h1>
+    
+            {%for row in rows %}
+            
+            {% endfor %}
+        <table class="table table-borderless">
+        <thead>
+            <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Total Shares</th>
+            <th scope="col">Share Price</th>
+            <th scope="col">Total Value</th>
+            </tr>
+        </thead>
+        <tbody><tr>
+            <th scope="row"></th>
+            <td>{{ row["name"] }}</td>
+            <td>{{ row["symbol"] }}</td>
+            <td>{{ row["total_shares"] }} </td>
+            <td>${{ row["price"] }} </td>
+            <td>${{ row["total_shares"]*row["price"]}}</td>
+            </tr></tbody>
+    </table>
+        <li> Total money $ {{cash}}</li>
+
+{% endblock %}</body></html>
