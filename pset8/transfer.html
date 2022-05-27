@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transfer
+{% endblock %}
+
+{% block main %}
+    <form action="/transfer" method="post">
+        <div class="form-group">
+            <h1>How much you gonna transfer to your account?</h1>
+            <input autocomplete="off" autofocus class="form-control" name="cash" placeholder="Total" type="number" min="1">
+            <h5>Min = 50 US$</h5>
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}
